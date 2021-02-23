@@ -2,7 +2,8 @@
 FROM golang:alpine as builder
 RUN mkdir /build 
 ADD . /build/
-WORKDIR /build 
+WORKDIR /build
+ENV GO111MODULE=off 
 RUN go build -o main .
 FROM alpine
 ENV PORT 8080
